@@ -88,6 +88,36 @@ export const portfolioData: PortfolioData = {
       coverImage: "/projects/forest-ia.webp"
     },
     {
+      id: "rigtech-app",
+      title: "Plataforma de Izaje",
+      subtitle: "Gestión de Maniobras de Izaje",
+      year: "2026",
+      category: "mobile",
+      stack: ["Flutter", "Dart", "Riverpod", "Isar NoSQL", "Supabase", "PKCE OAuth2", "Deno Edge Functions", "PDF Engine"],
+      description: "Plataforma móvil offline-first para la gestión integral de maniobras de izaje en minería y construcción. Digitaliza la creación de planes de izaje, checklists preoperacionales, monitoreo de viento y generación de reportes técnicos en PDF, sustituyendo flujos de trabajo en papel que demoraban semanas.",
+      features: [
+        "Gestión de planes de izaje completos en flujos multi-paso (configuración, carga, croquis de presión).",
+        "Checklists preoperacionales de grúas con alerta de fallo crítico e inhabilitación inmediata del equipo.",
+        "Monitoreo en tiempo real de velocidad de viento alineado a las tablas de carga del fabricante.",
+        "Motor nativo de reportes PDF con cálculos de rigging y firmas manuscritas digitalizadas.",
+        "Sincronización offline-first robusta con base de datos Isar y Supabase en la nube."
+      ],
+      challenges: [
+        "Sincronización bidireccional de 35 tablas con resolución de conflictos por timestamp.",
+        "Motor matemático in-app de izaje (cálculo de capacidad neta, presión sobre suelo, deducciones por aparejos).",
+        "Abstracción de Isar y Supabase bajo un patrón de Repositorio unificado (el UI no sabe de dónde vienen los datos).",
+        "Optimización de consultas Supabase previniendo el patrón N+1 mediante Deep Select."
+      ],
+      role: "Full-Stack Developer / Solutions Architect",
+      roleDetails: [
+        "Diseñé la arquitectura completa MVVM feature-first con Riverpod dividida en 10 módulos independientes.",
+        "Creé el sistema de diseño visual premium adaptado a entornos industriales de alta visibilidad.",
+        "Programé el motor de sincronización masivo y la cola de subida en segundo plano.",
+        "Desarrollé las Edge Functions en Deno para creación de usuarios y envío de notificaciones automáticas."
+      ],
+      coverImage: "/projects/rigtech-app.webp"
+    },
+    {
       id: "ev-dashboard",
       title: "Dashboard de Reforestación",
       subtitle: "Envol Vert Analytical Platform",
@@ -116,6 +146,65 @@ export const portfolioData: PortfolioData = {
         "Configuré el backend en Supabase con RLS, vistas materializadas y funciones en PL/pgSQL."
       ],
       coverImage: "/projects/ev-dashboard.webp"
+    },
+    {
+      id: "mosaico",
+      title: "Enriquecimiento de Datos",
+      subtitle: "Sistema de Enriquecimiento de Base de Medios",
+      year: "2026",
+      category: "data",
+      stack: ["Node.js", "TypeScript", "Google Cloud Run", "Google Firestore", "Google Sheets API", "Apps Script", "Google Gemini", "Serper.dev", "DataForSEO", "Docker", "Jest"],
+      description: "Plataforma corporativa de enriquecimiento de datos de medios de comunicación integrada como panel lateral en Google Sheets. Automatiza el descubrimiento de URLs oficiales, clasificación de tráfico SEO en 4 niveles, homologación inteligente de roles con IA y depuración de contactos importados de LinkedIn.",
+      features: [
+        "Pipeline de enriquecimiento en 4 pasos ejecutado asíncronamente desde Google Sheets Sidebar.",
+        "Ingesta y procesamiento de archivos ZIP de LinkedIn para deduplicación y cálculo de relevancia.",
+        "Scoring multiseñal para descubrir URLs legítimas y descartar redes sociales/espejos.",
+        "Homologación automática de puestos de periodistas usando Gemini 1.5 Flash con catálogo dinámico.",
+        "Clasificación automática de medios en Tiers de tráfico SEO con DataForSEO API."
+      ],
+      challenges: [
+        "Bypass de límites de Apps Script mediante un sistema de polling asíncrono desde el Sidebar directo a Cloud Run.",
+        "Motor de checkpoints basado en Firestore e idempotencia con hashes SHA-256 para reanudar jobs fallidos sin re-procesar.",
+        "Verificación HTTP paralela con timeout controlado para validar dominios en tiempo real.",
+        "Normalización de teléfonos a formato E.164, deduplicación multidimensional y creación de manifiestos auditables."
+      ],
+      role: "Full-Stack Developer / Solutions Architect",
+      roleDetails: [
+        "Realicé el análisis técnico y de viabilidad económica del proyecto (PDR v3.0).",
+        "Diseñé la arquitectura serverless multi-tenant en Google Cloud Platform.",
+        "Desarrollé el backend de procesamiento en Node.js/TypeScript y el add-on en Google Apps Script.",
+        "Configuré el pipeline de CI/CD con Docker y Google Cloud Build e implementé tests en Jest."
+      ],
+      coverImage: "/projects/mosaico.webp"
+    },
+    {
+      id: "izzi-simulador",
+      title: "Simulador de Comisiones",
+      subtitle: "Proyector de Nóminas Multinivel",
+      year: "2025",
+      category: "web",
+      stack: ["React", "Vite", "Tailwind CSS", "Zustand", "Firebase Cloud Functions", "BigQuery", "Recharts", "Node.js"],
+      description: "Plataforma web de simulación y proyección de comisiones diseñada para la fuerza de ventas de una importante empresa de telecomunicaciones. Conecta una interfaz moderna con el data warehouse corporativo a través de un backend serverless, automatizando cálculos sobre esquemas de compensación complejos.",
+      features: [
+        "Validación en tiempo real por código SAP e inicios de sesión basados en roles (vendedor/supervisor/admin).",
+        "Motor de cálculo reactivo que simula más de 20 canales de venta con aceleradores independientes.",
+        "Visualización interactiva de nóminas con comparativa de comisión base, bonos de productividad y garantías.",
+        "BFF (Backend-for-Frontend) serverless para consultas seguras de datos agregados.",
+        "Persistencia de escenarios simulados en Zustand con cálculo instantáneo en cliente."
+      ],
+      challenges: [
+        "Diseño de una arquitectura de reglas extensible que soporte políticas cambiantes de comisiones por canal y región.",
+        "Optimización de queries a BigQuery para garantizar tiempos de carga inferiores a 1 segundo.",
+        "Integración de aceleradores por rango (Cintas Amarilla, Negra, Platino) y multiplicadores RGU."
+      ],
+      role: "Full-Stack Developer / Solutions Architect",
+      roleDetails: [
+        "Modelé el dominio de comisiones y lideré el análisis de requerimientos con el equipo de finanzas.",
+        "Desarrollé la interfaz responsiva y el dashboard de datos densos con React y Tailwind.",
+        "Escribí las Cloud Functions en Node.js e integré las consultas parametrizadas a BigQuery.",
+        "Desplegué el ecosistema completo en Firebase con configuraciones seguras de CORS y rate limiting."
+      ],
+      coverImage: "/projects/izzi-simulador.webp"
     },
     {
       id: "to-do",
