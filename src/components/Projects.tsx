@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Calendar, Code, User, AlertCircle, Check, Info, Cpu, Sparkles, LayoutGrid, ListChecks } from 'lucide-react';
+import { X, Calendar, Code, User, Check, Info, Cpu, Sparkles, LayoutGrid } from 'lucide-react';
 import { portfolioData, type Project } from '../data/portfolioData';
 
 export const Projects: React.FC = () => {

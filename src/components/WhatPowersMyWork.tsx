@@ -2,11 +2,6 @@ import React, { useState } from 'react';
 import { 
   Monitor, 
   Mic, 
-  Code2, 
-  Code, 
-  Orbit, 
-  Sparkles, 
-  ListTodo,
   Terminal,
   Cpu
 } from 'lucide-react';

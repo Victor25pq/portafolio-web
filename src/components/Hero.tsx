@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
