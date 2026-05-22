@@ -27,7 +27,7 @@ export const Sidebar: React.FC = () => {
         <div className="relative w-36 h-36 mb-5">
           <div className="w-full h-full rounded-2xl overflow-hidden border border-[var(--border)] shadow-md">
             <img
-              src="/profile.png"
+              src="/profile.webp"
               alt={profile.name}
               className="w-full h-full object-cover"
             />
