@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .bg {
+      fill: #006f47;
+    }
+    .txt {
+      fill: #ffffff;
+      font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      font-weight: 900;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+    @media (prefers-color-scheme: dark) {
+      .bg {
+        fill: #73b185;
+      }
+      .txt {
+        fill: #0c1c11;
+      }
+    }
+  </style>
+  <rect class="bg" width="32" height="32" rx="6" />
+  <text class="txt" x="16" y="16">VA</text>
+</svg>

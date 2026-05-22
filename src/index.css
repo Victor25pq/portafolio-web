@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  --font-outfit: "Outfit", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+:root {
+  --bg: oklch(0.97 0.008 80);
+  --card-bg: oklch(0.94 0.012 80);
+  --border: oklch(0.88 0.015 80);
+  --text: oklch(0.30 0.01 80);
+  --text-heading: oklch(0.14 0.01 80);
+  
+  --accent: oklch(0.40 0.12 145);
+  --accent-hover: oklch(0.34 0.12 145);
+  --accent-bg: oklch(0.40 0.12 145 / 0.08);
+  --accent-border: oklch(0.40 0.12 145 / 0.25);
+  
+  --shadow: rgba(43, 39, 31, 0.06) 0px 4px 20px 0px, rgba(43, 39, 31, 0.04) 0px 1px 3px 0px;
+  --shadow-hover: rgba(43, 39, 31, 0.12) 0px 10px 30px 0px, rgba(43, 39, 31, 0.06) 0px 2px 6px 0px;
+}
+
+:root.dark {
+  --bg: oklch(0.18 0.008 80);
+  --card-bg: oklch(0.22 0.008 80);
+  --border: oklch(0.28 0.008 80);
+  --text: oklch(0.82 0.008 80);
+  --text-heading: oklch(0.96 0.008 80);
+  
+  --accent: oklch(0.68 0.15 145);
+  --accent-hover: oklch(0.74 0.15 145);
+  --accent-bg: oklch(0.68 0.15 145 / 0.12);
+  --accent-border: oklch(0.68 0.15 145 / 0.35);
+  
+  --shadow: rgba(0, 0, 0, 0.3) 0px 10px 30px -10px, rgba(0, 0, 0, 0.2) 0px 1px 3px 0px;
+  --shadow-hover: rgba(0, 0, 0, 0.45) 0px 20px 40px -15px, rgba(0, 0, 0, 0.35) 0px 2px 8px 0px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-outfit);
+  color: var(--text-heading);
+}
+
+/* Glassmorphism custom classes */
+.glass-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Scrollbar overrides */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Fade-in animation class */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Custom glow effect */
+.glow-accent {
+  position: relative;
+}
+
+.glow-accent::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, var(--accent), transparent 60%);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.glow-accent:hover::before {
+  opacity: 0.6;
+}
+
+/* Slide-up keyframes for modals */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
