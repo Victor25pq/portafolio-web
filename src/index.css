@@ -37,6 +37,10 @@
   --shadow-hover: rgba(0, 0, 0, 0.45) 0px 20px 40px -15px, rgba(0, 0, 0, 0.35) 0px 2px 8px 0px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg);
   color: var(--text);
