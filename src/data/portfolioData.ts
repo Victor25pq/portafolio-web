@@ -12,6 +12,7 @@ export interface Project {
   category: 'mobile' | 'web' | 'data' | 'utility';
   coverImage?: string;
   url?: string;
+  ownership: 'own' | 'client';
 }
 
 export interface Experience {
@@ -86,7 +87,8 @@ export const portfolioData: PortfolioData = {
         "Desarrollé la lógica de negocio central de captura, procesamiento local y API de Whisper/GPT-4o.",
         "Programé los servicios en Kotlin para la grabación en segundo plano y compresión a .ogg con FFmpeg."
       ],
-      coverImage: "/projects/forest-ia.webp"
+      coverImage: "/projects/forest-ia.webp",
+      ownership: "own"
     },
     {
       id: "rigtech-app",
@@ -116,7 +118,8 @@ export const portfolioData: PortfolioData = {
         "Programé el motor de sincronización masivo y la cola de subida en segundo plano.",
         "Desarrollé las Edge Functions en Deno para creación de usuarios y envío de notificaciones automáticas."
       ],
-      coverImage: "/projects/rigtech-app.webp"
+      coverImage: "/projects/rigtech-app.webp",
+      ownership: "client"
     },
     {
       id: "ev-dashboard",
@@ -146,7 +149,8 @@ export const portfolioData: PortfolioData = {
         "Programé el script de sincronización ETL en Python con detección de cambios y soft-deletes.",
         "Configuré el backend en Supabase con RLS, vistas materializadas y funciones en PL/pgSQL."
       ],
-      coverImage: "/projects/ev-dashboard.webp"
+      coverImage: "/projects/ev-dashboard.webp",
+      ownership: "client"
     },
     {
       id: "mosaico",
@@ -176,7 +180,8 @@ export const portfolioData: PortfolioData = {
         "Desarrollé el backend de procesamiento en Node.js/TypeScript y el add-on en Google Apps Script.",
         "Configuré el pipeline de CI/CD con Docker y Google Cloud Build e implementé tests en Jest."
       ],
-      coverImage: "/projects/mosaico.webp"
+      coverImage: "/projects/mosaico.webp",
+      ownership: "client"
     },
     {
       id: "izzi-simulador",
@@ -205,7 +210,8 @@ export const portfolioData: PortfolioData = {
         "Escribí las Cloud Functions en Node.js e integré las consultas parametrizadas a BigQuery.",
         "Desplegué el ecosistema completo en Firebase con configuraciones seguras de CORS y rate limiting."
       ],
-      coverImage: "/projects/izzi-simulador.webp"
+      coverImage: "/projects/izzi-simulador.webp",
+      ownership: "client"
     },
     {
       id: "to-vibe",
@@ -235,7 +241,8 @@ export const portfolioData: PortfolioData = {
         "Desarrollé la totalidad de los 22 componentes React usando atomic design puro."
       ],
       coverImage: "/projects/to-vibe.webp",
-      url: "https://to-vibe.vercel.app/"
+      url: "https://to-vibe.vercel.app/",
+      ownership: "own"
     }
   ],
   experiences: [

@@ -5,6 +5,7 @@ import { portfolioData, type Project } from '../data/portfolioData';
 export const Projects: React.FC = () => {
   const { projects } = portfolioData;
   const [filter, setFilter] = useState<'all' | 'mobile' | 'web' | 'data'>('all');
+  const [ownershipFilter, setOwnershipFilter] = useState<'all' | 'own' | 'client'>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeTab, setActiveTab] = useState<'general' | 'features' | 'challenges'>('general');
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
@@ -40,9 +41,17 @@ export const Projects: React.FC = () => {
     { value: 'data', label: 'Datos & ETL' }
   ];
 
-  const filteredProjects = projects.filter(
-    (project) => filter === 'all' || project.category === filter
-  );
+  const ownershipCategories = [
+    { value: 'all', label: 'Todas' },
+    { value: 'own', label: 'Propias' },
+    { value: 'client', label: 'Clientes' }
+  ];
+
+  const filteredProjects = projects.filter((project) => {
+    const matchesCategory = filter === 'all' || project.category === filter;
+    const matchesOwnership = ownershipFilter === 'all' || project.ownership === ownershipFilter;
+    return matchesCategory && matchesOwnership;
+  });
 
   // Lock scroll when modal is open
   useEffect(() => {
@@ -66,23 +75,44 @@ export const Projects: React.FC = () => {
           </h2>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat.value}
-              onClick={() => {
-                setFilter(cat.value as any);
-              }}
-              className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
-                filter === cat.value
-                  ? 'bg-[var(--accent)] text-white shadow'
-                  : 'text-[var(--text)] border border-[var(--border)] hover:bg-[var(--accent-bg)] hover:text-[var(--text-heading)]'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+        {/* Filters Group */}
+        <div className="flex flex-col gap-5 mb-10 items-center justify-center">
+          {/* Categories Filter */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat.value}
+                onClick={() => setFilter(cat.value as any)}
+                className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
+                  filter === cat.value
+                    ? 'bg-[var(--accent)] text-white shadow'
+                    : 'text-[var(--text)] border border-[var(--border)] hover:bg-[var(--accent-bg)] hover:text-[var(--text-heading)]'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Small modern divider */}
+          <div className="w-12 h-[1px] bg-[var(--border)] opacity-60"></div>
+
+          {/* Ownership Filter */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {ownershipCategories.map((own) => (
+              <button
+                key={own.value}
+                onClick={() => setOwnershipFilter(own.value as any)}
+                className={`px-4 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  ownershipFilter === own.value
+                    ? 'bg-[var(--accent-bg)] text-[var(--accent)] border border-[var(--accent-border)]'
+                    : 'text-[var(--text)] border border-transparent hover:bg-[var(--accent-bg)] hover:text-[var(--text-heading)]'
+                }`}
+              >
+                {own.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Projects Grid (2 columns) */}
