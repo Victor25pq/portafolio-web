@@ -24,7 +24,7 @@ type IconConfig =
 
 const iconMap: Record<string, IconConfig> = {
   // Hardware
-  'Mac mini M4': { type: 'simple-icon', value: 'apple', color: { dark: 'ffffff', light: '000000' } },
+  'Mac mini M4': { type: 'local-png', value: '/icons/apple.svg' },
   'Monitor 4K': { type: 'lucide', value: Monitor },
   'Hypercast': { type: 'lucide', value: Mic },
   
@@ -32,18 +32,18 @@ const iconMap: Record<string, IconConfig> = {
   'Codex': { type: 'local-png', value: '/icons/codex.webp' },
   'OpenCode': { type: 'local-png', value: '/icons/opencode.webp' },
   'Antigravity': { type: 'local-png', value: '/icons/antigravity.webp' },
-  'Claude': { type: 'simple-icon', value: 'anthropic', color: { dark: 'E0DCD3', light: '191919' } },
+  'Claude': { type: 'local-png', value: '/icons/anthropic.svg' },
   
   // CLI
-  'GitHub CLI': { type: 'simple-icon', value: 'github', color: { dark: 'ffffff', light: '181717' } },
+  'GitHub CLI': { type: 'local-png', value: '/icons/github.svg' },
   'gcloud': { type: 'local-png', value: '/icons/gcloud.webp' },
-  'Homebrew': { type: 'simple-icon', value: 'homebrew', color: 'FBB040' },
+  'Homebrew': { type: 'local-png', value: '/icons/homebrew.svg' },
   
   // Apps
   'toVibe': { type: 'local-png', value: '/icons/tovibe.webp' },
   'Google WS': { type: 'local-png', value: '/icons/google.webp' },
   'Gemini': { type: 'local-png', value: '/icons/gemini.webp' },
-  'YT Music': { type: 'simple-icon', value: 'youtubemusic', color: 'FF0000' }
+  'YT Music': { type: 'local-png', value: '/icons/youtubemusic.svg' }
 };
 
 const ToolIcon: React.FC<{ name: string }> = ({ name }) => {
@@ -68,11 +68,15 @@ const ToolIcon: React.FC<{ name: string }> = ({ name }) => {
   }
 
   if (config.type === 'local-png') {
+    const isThemeSensitiveSvg = config.value.endsWith('apple.svg') || config.value.endsWith('github.svg') || config.value.endsWith('anthropic.svg');
+    const style = isThemeSensitiveSvg && theme === 'dark' ? { filter: 'invert(1)' } : undefined;
+
     return (
       <img
         src={config.value}
         alt={name}
         className="w-6 h-6 object-contain"
+        style={style}
         onError={() => setHasError(true)}
       />
     );
