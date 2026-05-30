@@ -29,20 +29,20 @@ const iconMap: Record<string, IconConfig> = {
   'Hypercast': { type: 'lucide', value: Mic },
   
   // Ambiente Dev
-  'Codex': { type: 'local-png', value: '/icons/codex.png' },
-  'OpenCode': { type: 'local-png', value: '/icons/opencode.png' },
-  'Antigravity': { type: 'local-png', value: '/icons/antigravity.png' },
+  'Codex': { type: 'local-png', value: '/icons/codex.webp' },
+  'OpenCode': { type: 'local-png', value: '/icons/opencode.webp' },
+  'Antigravity': { type: 'local-png', value: '/icons/antigravity.webp' },
   'Claude': { type: 'simple-icon', value: 'anthropic', color: { dark: 'E0DCD3', light: '191919' } },
   
   // CLI
   'GitHub CLI': { type: 'simple-icon', value: 'github', color: { dark: 'ffffff', light: '181717' } },
-  'gcloud': { type: 'local-png', value: '/icons/gcloud.png' },
+  'gcloud': { type: 'local-png', value: '/icons/gcloud.webp' },
   'Homebrew': { type: 'simple-icon', value: 'homebrew', color: 'FBB040' },
   
   // Apps
-  'To-Do': { type: 'local-png', value: '/icons/todo.png' },
-  'Google WS': { type: 'local-png', value: '/icons/google.png' },
-  'Gemini': { type: 'local-png', value: '/icons/gemini.png' },
+  'toVibe': { type: 'local-png', value: '/icons/tovibe.webp' },
+  'Google WS': { type: 'local-png', value: '/icons/google.webp' },
+  'Gemini': { type: 'local-png', value: '/icons/gemini.webp' },
   'YT Music': { type: 'simple-icon', value: 'youtubemusic', color: 'FF0000' }
 };
 
@@ -109,18 +109,35 @@ const ToolGroup: React.FC<ToolGroupProps> = ({ title, items }) => (
     <div className="flex flex-wrap gap-4">
       {items.map((item, idx) => (
         <div key={idx} className="flex flex-col items-center gap-1.5 w-16">
-          {item.name === 'To-Do' ? (
-            <div className="relative w-12 h-12 rounded-lg border-2 border-[var(--accent)] bg-[var(--accent-bg)] flex items-center justify-center shadow-[0_0_12px_var(--accent)] hover:scale-105 hover:shadow-[0_0_16px_var(--accent)] transition-all duration-300 cursor-default">
-              <ToolIcon name={item.name} />
-            </div>
+          {item.name === 'toVibe' ? (
+            <>
+              <a
+                href="https://to-vibe.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative w-12 h-12 rounded-lg border-2 border-[var(--accent)] bg-[var(--accent-bg)] flex items-center justify-center shadow-[0_0_12px_var(--accent)] hover:scale-105 hover:shadow-[0_0_16px_var(--accent)] transition-all duration-300 cursor-pointer"
+              >
+                <ToolIcon name={item.name} />
+              </a>
+              <a
+                href="https://to-vibe.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-center leading-tight text-[var(--accent)] hover:underline cursor-pointer"
+              >
+                {item.name}
+              </a>
+            </>
           ) : (
-            <div className="w-12 h-12 rounded-lg border border-[var(--border)] bg-[var(--accent-bg)] flex items-center justify-center hover:border-[var(--accent-border)] hover:bg-[var(--bg)] hover:scale-105 transition-all duration-300 cursor-default shadow-sm">
-              <ToolIcon name={item.name} />
-            </div>
+            <>
+              <div className="w-12 h-12 rounded-lg border border-[var(--border)] bg-[var(--accent-bg)] flex items-center justify-center hover:border-[var(--accent-border)] hover:bg-[var(--bg)] hover:scale-105 transition-all duration-300 cursor-default shadow-sm">
+                <ToolIcon name={item.name} />
+              </div>
+              <span className="text-xs font-medium text-center leading-tight text-[var(--text-heading)]">
+                {item.name}
+              </span>
+            </>
           )}
-          <span className={`text-xs font-medium text-center leading-tight ${item.name === 'To-Do' ? 'text-[var(--accent)] font-bold' : 'text-[var(--text-heading)]'}`}>
-            {item.name}
-          </span>
         </div>
       ))}
     </div>
@@ -157,7 +174,7 @@ export const WhatPowersMyWork: React.FC = () => {
     {
       title: 'Apps',
       items: [
-        { name: 'To-Do' },
+        { name: 'toVibe' },
         { name: 'Google WS' },
         { name: 'Gemini' },
         { name: 'YT Music' }

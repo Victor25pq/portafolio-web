@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Calendar, Code, User, Check, Info, Cpu, Sparkles, LayoutGrid } from 'lucide-react';
+import { X, Calendar, Code, User, Check, Info, Cpu, Sparkles, LayoutGrid, ExternalLink } from 'lucide-react';
 import { portfolioData, type Project } from '../data/portfolioData';
 
 export const Projects: React.FC = () => {
@@ -182,8 +182,20 @@ export const Projects: React.FC = () => {
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--border)]"></span>
                     <span className="uppercase text-[var(--accent)] font-bold">{selectedProject.category}</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-black text-[var(--text-heading)] tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-black text-[var(--text-heading)] tracking-tight flex items-center gap-3">
                     {selectedProject.title}
+                    {selectedProject.url && (
+                      <a
+                        href={selectedProject.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-lg bg-[var(--accent-bg)] text-[var(--accent)] border border-[var(--accent-border)] hover:bg-[var(--accent)] hover:text-white transition-all cursor-pointer"
+                        title="Ver proyecto online"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        <span>Visitar</span>
+                      </a>
+                    )}
                   </h3>
                 </div>
                 <button

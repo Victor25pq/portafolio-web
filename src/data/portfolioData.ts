@@ -11,6 +11,7 @@ export interface Project {
   roleDetails: string[];
   category: 'mobile' | 'web' | 'data' | 'utility';
   coverImage?: string;
+  url?: string;
 }
 
 export interface Experience {
@@ -48,13 +49,13 @@ export interface PortfolioData {
 export const portfolioData: PortfolioData = {
   profile: {
     name: "Victor Angel PQ",
-    title: "Offline-First Mobile & Software Developer",
+    title: "Software Developer | Offline-First Apps · Data Pipelines · AI Integrations",
     location: "Perú",
     email: "victor25pq@gmail.com",
     linkedin: "https://www.linkedin.com/in/victor-angelpocomucha-quispe",
     youtube: "https://www.youtube.com/channel/UCAftGRdVTvPs4EB7OVnnIXA",
     bio: "Construyo aplicaciones de misión crítica, sistemas offline-first y pipelines de datos automatizados para entornos industriales, forestales y operativos.",
-    aboutLong: "Apasionado por conectar la realidad del campo con tecnología robusta y de alta disponibilidad. Especializado en diseñar aplicaciones móviles offline-first, pipelines de datos e integraciones de IA."
+    aboutLong: "Diseño aplicaciones móviles offline-first, plataformas web, pipelines de datos e integraciones de IA para convertir procesos complejos en soluciones digitales robustas."
   },
   projects: [
     {
@@ -207,8 +208,8 @@ export const portfolioData: PortfolioData = {
       coverImage: "/projects/izzi-simulador.webp"
     },
     {
-      id: "to-do",
-      title: "To-Do",
+      id: "to-vibe",
+      title: "toVibe",
       subtitle: "Kanban & Focus Timer Offline-First",
       year: "2026",
       category: "web",
@@ -233,7 +234,8 @@ export const portfolioData: PortfolioData = {
         "Construí la base de datos en Supabase con políticas RLS, triggers de auditoría e índices compuestos.",
         "Desarrollé la totalidad de los 22 componentes React usando atomic design puro."
       ],
-      coverImage: "/projects/to-do.webp"
+      coverImage: "/projects/to-vibe.webp",
+      url: "https://to-vibe.vercel.app/"
     }
   ],
   experiences: [

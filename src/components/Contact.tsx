@@ -27,7 +27,7 @@ export const Contact: React.FC = () => {
               Hablemos de tu <span className="text-[var(--accent)]">proyecto</span>
             </h2>
             <p className="text-md sm:text-lg text-[var(--text)] mb-8 leading-relaxed">
-              ¿Buscas un desarrollador senior que entienda las complejidades lógicas del campo, integre IA híbrida y construya bases sólidas de datos? Ponte en contacto conmigo.
+              ¿Buscas un desarrollador que entienda procesos complejos, integre IA y construya soluciones robustas con bases de datos sólidas? Ponte en contacto conmigo.
             </p>
 
             {/* Contact Actions */}
